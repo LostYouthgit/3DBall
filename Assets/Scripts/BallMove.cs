@@ -4,9 +4,10 @@ using System.Collections;
 public class BallMove : MonoBehaviour {
 
 
-	public float speed = 20f;
+	public float speed = 5f;
 	Rigidbody rb;
 	
+	public int directionInput;
 	// Use this for initialization
 	void Start () {
 	
@@ -24,7 +25,11 @@ public class BallMove : MonoBehaviour {
 	public void FixedUpdate()
 	{
 		
-		
+		if (rb.position.x > 23.5 && rb.position.x < 26.5)
+		{
+			float moveX = Input.GetAxis("Horizontal");
+			rb.MovePosition (rb.position + Vector3.right * moveX * speed * Time.deltaTime);
+		}
 
 		else if(rb. position.x <= 23.5)
 			
@@ -39,17 +44,29 @@ public class BallMove : MonoBehaviour {
 				Stop();
 				Move();
 		}	
+
+	}
+
+	void OnMouseDrag()
+	{
+			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			rb.position = Vector3.MoveTowards(rb.position, new Vector3(mousePos.x, rb.position.y, rb.position.z), speed * Time.deltaTime);		
+
+		
 	}
 
 	public void Move()
 	{
-		if (rb.position.x > 23.5 && rb.position.x < 26.5)
-		{
-			float moveX = Input.GetAxis("Horizontal");
-			rb.MovePosition (rb.position + Vector3.right * moveX * speed * Time.deltaTime);
-		}
 		rb.AddForce ((Vector3.up + Vector3.forward) * 200f);
 		//rb.MovePosition (rb.position + Vector3.up * speed * Time.deltaTime * 100);
+	}
+
+	public void Move(int InputAxis)
+	{
+		directionInput = InputAxis;
+		Debug.Log(InputAxis);
+
+		
 	}
 
 	void Stop()
