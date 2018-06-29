@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayMenu : MonoBehaviour {
 
 
-	public void OnMouseDrag()
+	public void OnMouseDown()
 	{
 		LoadLvl();
 	}
@@ -18,5 +18,15 @@ public class PlayMenu : MonoBehaviour {
 	public void Exit()
 	{
 		Application.Quit();
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene("Scene1");
+	}
+
+	public void ToMainMenu()
+	{
+		SceneManager.LoadScene("MainMenu");
 	}
 }

@@ -92,7 +92,7 @@ public class BallMove : MonoBehaviour {
 		}
 
 		if (touch.gameObject.tag == "Finish")
-			ReloadLvl();
+			GameOverMenu();
 
 		if (touch.gameObject.tag == "NextLevel")
 			SceneManager.LoadScene("Scene2");
@@ -102,6 +102,11 @@ public class BallMove : MonoBehaviour {
 	{
 		SceneManager.LoadScene("Scene1");
 
+	}
+
+	void GameOverMenu()
+	{
+		SceneManager.LoadScene("GameOverMenu");
 	}
 
 			
