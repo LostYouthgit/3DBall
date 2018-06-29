@@ -47,8 +47,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BallMove.cs" />
      <Compile Include="Assets\Scripts\Cam.cs" />
-     <Compile Include="Assets\Scripts\Control.cs" />
      <Compile Include="Assets\Scripts\LeftCube.cs" />
+     <Compile Include="Assets\Scripts\PlayMenu.cs" />
      <Compile Include="Assets\Scripts\RightCube.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/opt/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -5,6 +5,7 @@ public class LeftCube : MonoBehaviour {
 
 
 	public GameObject ball;
+	public Rigidbody rb;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,4 +16,21 @@ public class LeftCube : MonoBehaviour {
 	
 		transform.position = new Vector3 (24f,1f, ball.transform.position.z - 1f);
 	}
+
+	  void OnMouseDrag()
+    {        
+        if (rb.position.x > 23.5 && rb.position.x < 26.5)
+        {
+            rb.MovePosition(rb.position + Vector3.left * 3f * Time.deltaTime);
+        }
+
+        else if (rb.position.x <= 23.5)
+
+            rb.AddForce(Vector3.right * 1f);
+
+        else if (rb.position.x >= 26.5)
+
+            rb.AddForce(Vector3.left * 1f);
+    }
 }
+

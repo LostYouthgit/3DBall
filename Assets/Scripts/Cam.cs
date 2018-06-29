@@ -13,6 +13,6 @@ public class Cam : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		transform.position = new Vector3 (25f,1f, ball.transform.position.z - 2f);
+		transform.position = new Vector3 (25f,2f, ball.transform.position.z - 2f);
 	}
 }
